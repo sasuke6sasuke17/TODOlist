@@ -32,7 +32,7 @@ const createIncompleteList = (text) => {
   //完了ボタン
   const completeButton = document.createElement("button");
   completeButton.innerText = "完了";
-  deleteButton.addEventListener("click", () => {
+  completeButton.addEventListener("click", () => {
     deleteFromIncompleteList(div.parentNode); //親要素のdiv＝liを削除する
 
     //完了リスト追加

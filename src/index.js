@@ -1,39 +1,39 @@
 import "./styles.css";
 const onClickAdd = () => {
   //　テキストボックスの値を取得し、初期化する
-  const inputText = document.getElementById("add_text").value;
-  document.getElementById("add_text").value = "";
+  const inputText = document.getElementById("add_text").value; //inputTextにadd_textを入れる
+  document.getElementById("add_text").value = ""; //追加を押したときに、入力欄をリセットする
 
-  createIncompleteList(inputText);
+  createIncompleteList(inputText); //未完了のTODOの中に項目を作る、createIncompleteListという関数を作る
 };
 
 // 未完了リストから指定の要素を削除
 const deleteFromIncompleteList = (target) => {
-  document.getElementById("imcomplete_list").removeChild(target);
+  document.getElementById("incomplete_list").removeChild(target);
 };
 
 const createIncompleteList = (text) => {
   //　li生成
-  const li = document.createElement("li");
-  const div = document.createElement("div");
+  const li = document.createElement("li"); //createElementでliタグを作る
+  const div = document.createElement("div"); //createElementでdivタグを作る
   div.className = "list_row";
-  const pTag = document.createElement("p");
+  const pTag = document.createElement("p"); //createElementでpタグを作る
 
   //削除ボタン
-  const deleteButton = document.createElement("button");
-  deleteButton.innerText = "削除";
+  const deleteButton = document.createElement("button"); //deleteButtonという名前でボタンを作る
+  deleteButton.innerText = "削除"; //なんという名前のボタンかを決める必要があるのでinnerTextで名前をつける
   deleteButton.addEventListener("click", () => {
-    const deleteTarget = div.parentNode;
+    // const deleteTarget = div.parentNode;
     // console.log(deleteTarget);
     //document.getElementById("imcomplete_list").removeChild(deleteTarget);
-    deleteFromIncompleteList(deleteTarget);
+    deleteFromIncompleteList(div.parentNode);
   });
 
   //完了ボタン
   const completeButton = document.createElement("button");
   completeButton.innerText = "完了";
   deleteButton.addEventListener("click", () => {
-    deleteFromIncompleteList(div.parentNode);
+    deleteFromIncompleteList(div.parentNode); //親要素のdiv＝liを削除する
 
     //完了リスト追加
     const addTarget = pTag.parentNode;
@@ -61,7 +61,7 @@ const createIncompleteList = (text) => {
     });
 
     //　完了したTODO liタグ生成
-    addTarget.appendChild(pTag);
+    addTarget.appendChild(pTag); //divタグの中にpタグを作る
     addTarget.appendChild(backButton);
     pTag.innnerText = text;
 
@@ -77,9 +77,9 @@ const createIncompleteList = (text) => {
   div.appendChild(deleteButton);
 
   //　未完了リストに追加
-  document.getElementById("imcomplete_list").appendChild(li);
+  document.getElementById("incomplete_list").appendChild(li);
 };
 
 document
-  .getElementById("add_button")
-  .addEventListener("click", () => onClickAdd());
+  .getElementById("add_button") //追加ボタン設置
+  .addEventListener("click", () => onClickAdd()); //addボタンを押したら処理

@@ -35,7 +35,7 @@ button:hover {
   border-radius: 8px;
 }
 
-.imcomplete_area {
+.incomplete_area {
   background: violet;
   width: 400px;
   min-height: 200px;

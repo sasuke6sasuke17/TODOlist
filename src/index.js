@@ -25,7 +25,7 @@ const createIncompleteList = (text) => {
   deleteButton.addEventListener("click", () => {
     // const deleteTarget = div.parentNode;
     // console.log(deleteTarget);
-    //document.getElementById("imcomplete_list").removeChild(deleteTarget);
+    //document.getElementById("incomplete_list").removeChild(deleteTarget);
     deleteFromIncompleteList(div.parentNode);
   });
 
